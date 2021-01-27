@@ -1,0 +1,6 @@
+flask
+pandas
+numpy
+bokeh
+gunicorn(因為flask要使用這個套件才能在heroku上執行)
+Flask-Login==0.4.1(如果要用flask做登入系統的話)

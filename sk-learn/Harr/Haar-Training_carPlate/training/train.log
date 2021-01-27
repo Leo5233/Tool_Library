@@ -1,0 +1,26 @@
+PARAMETERS:
+cascadeDirName: cascades
+vecFileName: vector/facevector.vec
+bgFileName: negative/bg.txt
+numPos: 380
+numNeg: 293
+numStages: 15
+precalcValBufSize[Mb] : 512
+precalcIdxBufSize[Mb] : 512
+acceptanceRatioBreakValue : -1
+stageType: BOOST
+featureType: HAAR
+sampleWidth: 76
+sampleHeight: 20
+boostType: GAB
+minHitRate: 0.9999
+maxFalseAlarmRate: 0.5
+weightTrimRate: 0.95
+maxDepth: 1
+maxWeakCount: 100
+mode: ALL
+Number of unique features given windowSize [76,20] : 1627434
+
+===== TRAINING 0-stage =====
+<BEGIN
+POS current samples: 1POS current samples: 2POS current samples: 3POS current samples: 4POS current samples: 5POS current samples: 6POS current samples: 7POS current samples: 8POS current samples: 9POS current samples: 10POS current samples: 11POS current samples: 12POS current samples: 13POS current samples: 14POS current samples: 15POS current samples: 16POS current samples: 17POS current samples: 18POS current samples: 19POS current samples: 20POS current samples: 21POS current samples: 22POS current samples: 23POS current samples: 24POS current samples: 25POS current samples: 26POS current samples: 27POS current samples: 28POS current samples: 29POS current samples: 30POS current samples: 31POS current samples: 32POS current samples: 33POS current samples: 34POS current samples: 35POS current samples: 36POS current samples: 37POS current samples: 38POS current samples: 39

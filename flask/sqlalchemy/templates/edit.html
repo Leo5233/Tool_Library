@@ -1,0 +1,22 @@
+﻿<!DOCTYPE html>
+<html lang="zh-TW">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>SQL-Alchemy</title>
+    </head>
+    <body>
+        <h1>Edit Data!</h1>
+        <form method="post" action="/post/edit/{{num}}">
+            <label>Title</label>
+            <input type="text" name="title" value="{{allpost.title}}" placeholder="enter the title"><br>
+            <label>Content</label>
+            <input type="text" name="content" value="{{allpost.content}}" placeholder="content"><br>
+            <label>Author</label>
+            <input type="text" name="author" value="{{allpost.author}}" placeholder="author"><br>
+            <input type="submit" name="submit"/>
+        </form>
+
+    </body>
+</html>
+

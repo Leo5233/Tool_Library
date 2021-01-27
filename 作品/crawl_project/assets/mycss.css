@@ -1,0 +1,101 @@
+div#banner{background-color: #f4fbff; 
+	text-align: center;
+	color:#d1d9dd;
+	height:100px;
+	padding-top: 15px;
+	font-size:67px; 
+	white-space : nowrap;
+	}
+div#recommend_table{
+		width:100%;
+		display:'inline';
+		}
+a:link{color:#333;
+text-decoration:none;}
+a:visited{color:#963;
+text-decoration:none;}
+a:hover{color:#179;
+text-decoration:none;}
+
+table{	width: 100%;
+	border-collapse: collapse;}
+
+div.chapter{font-weight: bold;
+	padding: 10px;
+	text-align: center;
+	background-image:linear-gradient( #d4d4d8,#efeff3 ,#efeff3,#e4e4e8);
+	font: 30px arial;
+	color: #037;
+	border-bottom: 1px solid #ccc;}
+
+table#newslist tr {
+	height: 29px;
+	font-size:16px;}
+
+table#newslist tr td{border-bottom: 1px solid #ccc;}
+
+
+td > a{	vertical-align: middle;
+	padding-left:  10px ;}
+
+tr:nth-child(even) td{background-color: #f2f2f2;}
+
+div#chart1{width:100%;
+	display:flex;
+	min-height: 530px;
+	margin:20px 20px 0px 20px;
+	position:relative;
+	}	
+
+div label{ 
+	padding: 5px;
+	font-family: 'Arial', 'Lucida Console';
+	font-size:18px;
+	}
+
+div#graph1{
+                 width:80%;
+	color:#0000ff;
+	position:absolute;
+	right:5%;
+	}
+
+div#chart2{
+	position: relative;
+	width:100%;
+}
+
+div#search_button{
+	position: absolute;
+	width:19%;
+	color:#333;
+	top:10px;
+	left:0;
+	over-flow:hidden;
+	}
+
+h2{font-weight: bold;
+	font-family: arial;
+	padding: 10px;
+	text-align: center;
+	background-image:linear-gradient( #ffffff ,#efeff3,#e4e4e8);
+	font-size: 20px;
+	color: #037;
+	margin:0;
+}
+
+div#search_button table tr td{
+	font-size: 16px;
+	border-left:1px solid #ccc;
+	text-align: center;
+}
+
+td.symbol:hover, td.morenews:hover{background-color:#e4ebef;}
+td img, td.morenews{padding-right:8px;}
+
+div#history-word-frequence{
+	width:80%;
+	position: absolute;
+	top:10px;
+	right:0;
+	}

@@ -1,0 +1,48 @@
+﻿
+ form method選post讓user提供資料 action是讓user的資料丟到該連結呈現，文字的格式為字典
+label["for"]和內部文字為說明文字 沒有其他功用
+input內 placeholder文字為提示文字  name為Key值  value為預設(輸入)值  type有 type="checkbox", "email", "file", "password", "radio", "submit", "text" 還可以加上autofocus(自動選框) required(必填)
+button也是一種input 要放在form內才能控制該表格
+
+  <form method="post" action="/select_records">
+    <div class="form-group row">
+      <label for="說明文字" class="col-2 offset-1 col-form-label">說明文字</label>
+      <div class="col-3">
+        <input type="text" class="form-control" id="alpaca_name" name="Key值" placeholder="框內預設字" autofocus required>
+
+        <small class="form-text">輸入提示字</small>
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label for="說明文字" class="col-2 offset-1 col-form-label">說明文字</label>
+      <div class="col-3">
+        <input type="text" class="form-control" id="training" name="Key值" placeholder="框內預設字">
+        <small class="form-text">輸入提示字</small>
+      </div>
+
+    <button type="submit" class="btn btn-primary">查詢紀錄</button>
+</form>
+
+
+選單 <option selected註明起始選定值 <select>要記得封口 一個form可放多的select但只需要一個submit input
+<form method="post" action="/路徑">
+    <label for="input_example">請輸入：</label>
+    <select id="input_example" name="user_input">
+      <option selected value ="default">預設的選擇</option>
+      <option value ="one">其他選擇一</option>
+      <option value ="two">其他選擇二</option>
+   </select>
+
+    <label for="input_example">請輸入：</label>
+    <select id="input_example" name="user_input">
+      <option selected value ="default">預設的選擇</option>
+      <option value ="one">其他選擇一</option>
+      <option value ="two">其他選擇二</option>
+   </select>
+
+    <input type="submit">
+</form>
+
+textarea 沒有value(預設輸入值)而是直接夾在標籤內 rows區域高度行數(要加括號) cols為區域寬度為數字*4字元 
+<textarea class='oija' name="content" placeholder="please enter" id = "content" aria-label="content" rows="10" cosl="3"> 預設輸入</textarea>

@@ -1,0 +1,37 @@
+﻿{% macro title() -%}
+{% set columns = (("year", "month", "keyword", "frequency", "time"),) %}
+<div class="row1">
+{% for i in columns[0] %}
+<div class="col1">{{i}}</div>
+{% endfor %}
+</div>
+{%- endmacro %}
+
+<!-- 宣告我們要套用模板 -->
+{% extends "base.html" %}
+
+{% block title %}表格{% endblock %}
+
+{% block main %}
+  <div class="jumbotron">
+    <h1>Bootstrap Tutorial</h1>
+    <p>Bootstrap is the most popular HTML, CSS...</p>
+  </div>
+
+<style> div.row1{display:flex;flex-direction:row;justify-content:space-between;border-collapse:collapse;}div.col1{text-align:center;border:1px solid #d5e2f0;width:19.5%;}</style>
+
+{{title()}}
+{% for row in mydata %}
+	<div class="row1">
+	{% for item in row %}
+	<div class="col1">
+	<h2>{{item}}</h2>
+	</div>
+	{% endfor %}
+	</div>
+{% endfor%}
+
+{% endblock %}
+</body>
+</html>
+

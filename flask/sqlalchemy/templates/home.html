@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html>
+<html lang="zh-TW">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>SQL-Alchemy</title>
+    </head>
+    <body>
+        <h1>Enter Data!</h1>
+        <form method="post" action="/post">
+            <label>Title</label>
+            <input type="text" name="title" id="title" placeholder="enter the title"><br>
+            <label>Content</label>
+            <input type="text" name="author" id="author" placeholder="author"><br>
+            <label>Author</label>
+            <textarea name="content" placeholder="content" id="content"></textarea><br>
+            <input type="submit" name="submit"/>
+        </form>
+
+        {% for post in allpost %}
+        <p><h2>{{post.id}}</h2></p>
+    <p>{{post.title}}</p>
+    <p>content: {{post.content}}</p>   
+    <p>author: {{post.author}}</p>
+    <p><a href="/post/delete/{{post.id}}">delete</a>   
+        <a href="/post/edit/{{post.id}}">edit</a></p>
+    {% endfor %}
+</body>
+</html>
+

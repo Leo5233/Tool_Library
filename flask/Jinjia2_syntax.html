@@ -1,0 +1,120 @@
+<!--python的符號都可以使用 % // / 2e5 2.345 ** is in range(2) "sg{}sfg".format() "fgd %s" %asb
+<!--不可更改物件屬性，除非是namespace物件(專門用來自訂屬性的物件)-->
+    X{% set ns.found = true %}
+    V{% set ns = namespace(found=false) %}
+     {% set ns.found = true %}
+<!--自訂變數-->
+	{% set columns = (("year", "month", "keyword", "frequency", "time"),) %}
+        {% set key, value = call_something() %}
+<!--自訂html區塊變數 可將標籤結構回收重複使用-->
+    {% set reply %}
+        <p>You wrote1</p>
+        <p>You wrote2</p>
+        <p>You wrote3</p>
+    {% endset %}
+<!--自訂涵式-->
+	{% macro title() -%}
+            {{其他method也可以}}
+	{%- endmacro %}
+<!--迴圈-->
+	{% for i in columns[0] %}
+	{% endfor %}
+<!--if-->
+	{% if a == b%}
+	{% else %}
+	{% endif%}
+<!-- if xxx is defined 看這個變數存不存在-->
+    {% if xxx is defined %}
+<!-- for + if 縮寫 -->
+	{% for i in row if i else b%}
+<!-- 宣告我們要套用模板 -->
+	{% extends "base.html" %}
+<!-- 和模板不同而是引入其他html文字檔(可能只含header等不完整網頁) 且可套用多個 ignore missing找不到檔案時可忽略錯誤-->
+<!-- 當給予[多個html時] 第一個遺失會自動去抓下一個，以此類推-->
+        {% include 'header.html' ignore missing %}
+            <Body>
+        {% include ['footer.html', 'detail.html']  %}
+<!-- 當一個文字檔只宣告各種macro和變數沒有其他html標籤，便可以當作模組匯入-->
+        {% import 'xxx.html' as x%}
+            {{x.func()}}
+        {% from 'xxx.html' import func as f%}
+            {{f()}}
+<!-- 自訂區塊 -->
+	{% block title %}表格{% endblock %}
+<!-- 使用方法 -->
+	{{ abc(m, n)}}
+<!-- 註解 -->
+	{# sdzfgha#}
+<!--另一種寫法 -->
+	# for i in a
+		.....
+	# end for
+<!-- """  保留原始文字區塊  """ -->
+	{% raw %}..........{% endraw -%}句尾加上減號可以除開頭任何空白
+<!--範本中的區塊的原始內容 -->
+	{% block title %}{{ super() }}{% endblock %}
+<!-- 在要將迴圈中元素放入block要在宣告block時加上scoped才可以 -->
+	{% for i in seq %}
+	    <li>{% block a scoped %}{{ i }}{% endblock %}</li>
+	{% endfor %}
+<!--跳脫字元escaping，像是> < & "都必須跳脫 在data後面加上|e-->
+	{{ xxx|e }}
+	{% for key, value in my_dict.items() %}
+		    <dt>{{ key|e }}</dt>
+		    <dd>{{ value|e }}</dd>
+	{% endfor %}
+<!--for迴圈循環依序給值 用loop.circle()-->
+	{% for i in rows %}
+	    <li class="{{ loop.cycle('odd', 'even') }}">{{ i }}</li>
+	{% endfor %}
+<!--上面的loop是指向for迴圈的狀態, 但也可以成為和for無關的子迴圈-->
+<!--常見的sitemap網站導覽清單 在for後面加上recursive即可解離loop-->
+    <ul class="sitemap">
+        {%- for item in sitemap recursive %}
+            <li><a href="{{ item.href|e }}">{{ item.title }}</a>
+            {%- if item.children -%}
+                <!--子迴圈 原本item.children是指for中單一元素 現在可以取出第二層-->
+                <ul class="submenu">{{ loop(item.children) }}</ul>
+            {%- endif %}</li>
+        {%- endfor %}
+    </ul>
+<!--for迴圈中可以使用loop.nextitem下個 loop.previtem上個元素-->
+        {% for v in values %}
+            {{ loop.previtem }}<br>
+            {{v}}<br>
+            {{loop.nextitem}}
+        {% endfor %}
+<!--loop.changed(x) 可放條件是來判斷x有沒有被改變-->
+    {% if loop.changed(entry.category) %}
+<!--轉大寫-->
+    {% filter upper %}osfg{% endfilter %}
+<!--表格涵式-->
+abs() float() lower() round() tojson() attr() forceescape() map()
+safe() trim() batch() format() max() select() truncate() capitalize()
+groupby() min() selectattr() unique() center() indent() pprint() slice() upper()
+default() int() random() sort() urlencode() dictsort() join() reject()
+string() urlize() escape() last() rejectattr() striptags() wordcount()
+filesizeformat() length() replace() sum() wordwrap() first() list() reverse()
+title() xmlattr()
+<!--給予使用的變數預設值 因為jinjia的變數不像python每個變數都有很多可用的attr 所以不能用'.'要用'|'-->
+    {{ my_variable|default('my_variable is not defined') }}
+<!-- groupby 不能用'.'要用'|' 因為取出了city其他所有col會被收納成該city(Key值)下的value的各種屬性 --> 
+    {% for city, items in users|groupby("city") %}
+        {% for data in items %}
+            {{data.name}}{{data.date}}{{data.sex}}
+<!--隨機從數組中抽樣一個類似python 的random.choice()-->
+    {{a|random()}}
+<!--置換-->
+    {{ "Hello World"|replace("Hello", "Goodbye") }}
+<!--取整數 無條件進位 無條件捨去-->
+    {{ 42.55|round }}
+    {{ 42.55|round(1, 'floor') }}
+<!--排序預設asec-->
+     {{ "Hello World"|sort }}
+<!--去重複-->
+     {{ "Hello World"|unique() }}
+<!--區域限定變數 外界不能使用-->
+     {% with foo = 42 %}
+        {{ foo }}
+    {% endwith %}
+    

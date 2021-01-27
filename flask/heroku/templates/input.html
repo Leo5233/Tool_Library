@@ -1,0 +1,27 @@
+﻿
+<!-- 宣告我們要套用模板 -->
+{% extends "base.html" %}
+
+{% macro opt(a,b,c)-%}
+    <label for={{c}}>請輸入{{c}}:</label>
+
+   <select id={{c}} name={{c}}>
+    <option selected value={{b}}>{{b}}</option>
+  {% for i in range(a,b)%}
+     <option value={{i}}>{{i}}</option>
+ {% endfor %}
+</select>
+{%- endmacro%}
+
+
+{% block main %}
+<form method="post" action="/select_records">
+<div>
+{{opt(2010,2020,"year")}}
+</div><div>
+{{opt(1,12,"month")}}
+</div>
+<button type="submit" class="btn btn-primary">查詢紀錄</button>
+</form>
+{% endblock %}
+

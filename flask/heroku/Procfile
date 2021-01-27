@@ -1,0 +1,3 @@
+web: bokeh serve --port=$PORT --allow-websocket-origin=bokeh-alvin.herokuapp.com --address=0.0.0.0 --use-xheaders app.py //bokeh才用這個
+web: gunicorn py檔名去.py:app --preload //gunicorn用(flask會使用gunicorn)
+web: python app.py//一般執行
